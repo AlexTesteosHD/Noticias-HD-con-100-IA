@@ -1,0 +1,668 @@
+/* =========================================================
+   NOTICIAS AL DÍA - ESTILOS PRINCIPALES
+   ========================================================= */
+
+/* ---------- CONFIGURACIÓN GENERAL ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f3ff;
+    color: #24213a;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   ENCABEZADO
+   ========================================================= */
+
+header {
+    background: linear-gradient(135deg, #17152b, #29234d, #4c1d6f);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid #ff2bd6;
+}
+
+/* Decoración del encabezado */
+
+header::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: #ff2bd6;
+    opacity: 0.12;
+    border-radius: 50%;
+    top: -120px;
+    left: -80px;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: #00d9ff;
+    opacity: 0.10;
+    border-radius: 50%;
+    bottom: -180px;
+    right: -80px;
+}
+
+header h1 {
+    position: relative;
+    z-index: 1;
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: #ffffff;
+    text-shadow:
+        0 0 8px #ff2bd6,
+        0 0 20px rgba(255, 43, 214, 0.7);
+}
+
+header p {
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #d9f7ff;
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   MENÚ DE NAVEGACIÓN
+   ========================================================= */
+
+nav {
+    background: #17152b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 15px;
+    min-height: 70px;
+    border-bottom: 2px solid #8b5cf6;
+    box-shadow: 0 5px 20px rgba(23, 21, 43, 0.25);
+}
+
+/* Quitamos los separadores "|" que están escritos en el HTML */
+
+nav a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 25px 22px;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+/* Línea animada debajo */
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 12px;
+    width: 0;
+    height: 3px;
+    background: #ff2bd6;
+    box-shadow: 0 0 8px #ff2bd6;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 65%;
+}
+
+nav a:hover {
+    color: #00d9ff;
+    background: rgba(255, 43, 214, 0.08);
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px #00d9ff;
+}
+
+
+/* =========================================================
+   LÍNEAS HR
+   ========================================================= */
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent,
+        #ff2bd6,
+        #8b5cf6,
+        #00d9ff,
+        transparent
+    );
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================= */
+
+main {
+    width: 100%;
+    min-height: 500px;
+    padding: 55px 25px;
+    background:
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(255, 43, 214, 0.08),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(0, 217, 255, 0.08),
+            transparent 25%
+        ),
+        #f5f3ff;
+}
+
+#contenido {
+    max-width: 1200px;
+    margin: auto;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow:
+        0 10px 35px rgba(23, 21, 43, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.08);
+    animation: aparecer 0.6s ease;
+}
+
+#contenido h2 {
+    color: #29234d;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+#contenido p {
+    color: #66627c;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+   ========================================================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ESTILOS PARA LAS SECCIONES CARGADAS
+   ========================================================= */
+
+#contenido section {
+    animation: aparecer 0.6s ease;
+}
+
+#contenido section h1,
+#contenido section h2 {
+    color: #29234d;
+}
+
+#contenido section h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+}
+
+#contenido section p {
+    line-height: 1.7;
+    color: #5f5b75;
+}
+
+
+/* =========================================================
+   TARJETAS DE NOTICIAS
+   ========================================================= */
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.noticia {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e9ddff;
+    box-shadow: 0 8px 25px rgba(23, 21, 43, 0.08);
+    transition: all 0.3s ease;
+}
+
+.noticia:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 15px 35px rgba(139, 92, 246, 0.20),
+        0 0 15px rgba(255, 43, 214, 0.10);
+    border-color: #ff2bd6;
+}
+
+.noticia img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.noticia:hover img {
+    transform: scale(1.05);
+}
+
+.noticia-contenido {
+    padding: 22px;
+}
+
+.noticia h3 {
+    color: #29234d;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.noticia p {
+    font-size: 15px;
+    color: #77748c;
+}
+
+
+/* =========================================================
+   ETIQUETAS
+   ========================================================= */
+
+.etiqueta {
+    display: inline-block;
+    background: #ff2bd6;
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    padding: 7px 13px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+button,
+.boton {
+    border: none;
+    cursor: pointer;
+    padding: 13px 24px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff2bd6, #8b5cf6);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.25);
+}
+
+button:hover,
+.boton:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 25px rgba(255, 43, 214, 0.35),
+        0 0 12px rgba(0, 217, 255, 0.2);
+}
+
+
+/* =========================================================
+   SLIDER
+   ========================================================= */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    border-radius: 18px;
+    margin: 25px 0 35px;
+    background: #17152b;
+    box-shadow: 0 12px 30px rgba(23, 21, 43, 0.2);
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(23, 21, 43, 0.9),
+        rgba(23, 21, 43, 0.05)
+    );
+}
+
+.slide-contenido {
+    position: absolute;
+    z-index: 2;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    color: white;
+}
+
+.slide-contenido h2 {
+    color: white !important;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.slide-contenido p {
+    color: #ffffff !important;
+}
+
+
+/* Botones del slider */
+
+.slider-btn {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(23, 21, 43, 0.7);
+    border: 1px solid #ffffff;
+    color: white;
+    font-size: 24px;
+}
+
+.slider-btn:hover {
+    background: #ff2bd6;
+}
+
+.slider-btn.prev {
+    left: 18px;
+}
+
+.slider-btn.next {
+    right: 18px;
+}
+
+
+/* Puntos */
+
+.slider-puntos {
+    position: absolute;
+    z-index: 5;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.punto {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: white;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.punto.active {
+    opacity: 1;
+    background: #ff2bd6;
+    box-shadow: 0 0 10px #ff2bd6;
+    transform: scale(1.25);
+}
+
+
+/* =========================================================
+   FORMULARIO DE CONTACTO
+   ========================================================= */
+
+form {
+    max-width: 700px;
+    margin: 30px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 7px;
+    color: #29234d;
+    font-weight: bold;
+}
+
+form input,
+form textarea,
+form select {
+    width: 100%;
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    border: 2px solid #e9ddff;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #ff2bd6;
+    box-shadow: 0 0 12px rgba(255, 43, 214, 0.15);
+}
+
+form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    background: #17152b;
+    color: white;
+    text-align: center;
+    padding: 45px 20px 25px;
+    border-top: 4px solid #8b5cf6;
+}
+
+footer h3 {
+    font-size: 25px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+footer p {
+    color: #c9c5dc;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+footer p:last-child {
+    color: #8f8aa7;
+    font-size: 13px;
+    margin-top: 25px;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header h1 {
+        font-size: 38px;
+    }
+
+    nav a {
+        padding: 20px 14px;
+        font-size: 14px;
+    }
+
+    #contenido {
+        padding: 35px 25px;
+    }
+
+    .noticias-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slider {
+        height: 350px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULARES
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 35px 15px;
+    }
+
+    header h1 {
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+    header p {
+        font-size: 14px;
+    }
+
+    nav {
+        padding: 8px;
+    }
+
+    nav a {
+        padding: 13px 10px;
+        font-size: 13px;
+    }
+
+    nav a::after {
+        bottom: 5px;
+    }
+
+    main {
+        padding: 25px 12px;
+    }
+
+    #contenido {
+        padding: 25px 18px;
+        border-radius: 14px;
+    }
+
+    #contenido h2 {
+        font-size: 27px;
+    }
+
+    .noticias-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .slider {
+        height: 280px;
+    }
+
+    .slide-contenido {
+        bottom: 30px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .slide-contenido h2 {
+        font-size: 23px;
+    }
+
+    .slider-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav a {
+        padding: 10px 7px;
+        font-size: 12px;
+    }
+
+    #contenido {
+        padding: 20px 15px;
+    }
+}
